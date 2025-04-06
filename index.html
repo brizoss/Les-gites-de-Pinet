@@ -9,7 +9,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <style>
         .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://gestion-gites-pinet.netlify.app/IMG_20210407_105254.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://les-gites-de-pinet.netlify.app/IMG_20210407_105304.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -196,7 +196,7 @@
 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 <!-- Activity 1 -->
 <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-<img alt="Dégustation de vin" class="w-full h-48 object-cover" src="https://gestion-gites-pinet.netlify.app/images/agde.PNG"/>
+<img alt="Dégustation de vin" class="w-full h-48 object-cover" src="https://les-gites-de-pinet.netlify.app/images/agde.PNG"/>
 <div class="p-4">
 <h3 class="font-bold text-lg mb-2">Dégustation de vins</h3>
 <p class="text-gray-600 text-sm mb-3">Visitez les domaines viticoles de Pinet et dégustez le fameux Picpoul de Pinet, vin blanc local réputé.</p>
@@ -205,7 +205,7 @@
 </div>
 <!-- Activity 2 -->
 <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
-<img alt="Canal du midi" class="w-full h-48 object-cover" src="https://gestion-gites-pinet.netlify.app/images/canal-du-midi.png"/>
+<img alt="Canal du midi" class="w-full h-48 object-cover" src="https://les-gites-de-pinet.netlify.app/images/canal-du-midi.png"/>
 <div class="p-4">
 <h3 class="font-bold text-lg mb-2">Plages de Sète</h3>
 <p class="text-gray-600 text-sm mb-3">Détendez-vous sur les magnifiques plages de sable fin de Sète, à seulement 20 minutes en voiture.</p>
@@ -328,7 +328,7 @@
 </div>
 </div>
 <div class="md:w-1/2 p-8">
-<form action="https://script.google.com/macros/s/1t1BOJygv_UJwJJ1EVgm8eBUrf1dYFP9cjUqLW18GFb4/exec" id="bookingForm" method="POST">
+<form id="bookingForm">
 <div class="mb-4">
 <label class="block text-sm font-medium text-gray-700 mb-1" for="gite">Gîte souhaité</label>
 <select class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500" id="gite" name="gite">
@@ -609,11 +609,13 @@
             });
         });
     </script>
-<script>document.getElementById('bookingForm').addEventListener('submit', function(e) {
+<script>
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const form = e.target;
   const formData = new FormData(form);
-  fetch("https://script.google.com/macros/s/1t1BOJygv_UJwJJ1EVgm8eBUrf1dYFP9cjUqLW18GFb4/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwOStFs1yMQ-XF9ctQ4xzfrjUoAF8492ccbTxDAOH69kMRFlB34-8wzKGLF973LyH8z/exec", {
+
     method: "POST",
     body: formData
   })
@@ -625,6 +627,7 @@
   .catch(error => {
     alert("Erreur lors de l'envoi : " + error.message);
   });
-});</script>
+});
+</script>
 </body>
 </html>
