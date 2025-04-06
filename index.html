@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gîtes de Pinet - Location saisonnière dans l'Hérault</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .gite-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+        }
+        
+        .availability-calendar .available {
+            background-color: #4ade80;
+            color: white;
+        }
+        
+        .availability-calendar .booked {
+            background-color: #f87171;
+            color: white;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-wine-glass-alt text-2xl text-amber-800 mr-2"></i>
+                        <span class="text-xl font-bold text-gray-800">Gîtes de Pinet</span>
+                    </a>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#accueil" class="text-gray-900 hover:text-amber-700 px-3 py-2 text-sm font-medium">Accueil</a>
+                    <a href="#gites" class="text-gray-900 hover:text-amber-700 px-3 py-2 text-sm font-medium">Nos Gîtes</a>
+                    <a href="#activites" class="text-gray-900 hover:text-amber-700 px-3 py-2 text-sm font-medium">À voir/faire</a>
+                    <a href="#avis" class="text-gray-900 hover:text-amber-700 px-3 py-2 text-sm font-medium">Avis</a>
+                    <a href="#contact" class="text-gray-900 hover:text-amber-700 px-3 py-2 text-sm font-medium">Contact</a>
+                    <a href="#reservation" class="bg-amber-700 hover:bg-amber-800 text-white px-4 py-2 rounded-md text-sm font-medium">Réserver</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-amber-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero h-screen flex items-center justify-center text-white">
+        <div class="text-center px-4 max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Découvrez Pinet, perle du Languedoc</h1>
+            <p class="text-xl md:text-2xl mb-8">Entre vignobles réputés et plages méditerranéennes, nos gîtes indépendants vous offrent un havre de paix au cœur de l'Hérault.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#gites" class="bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Nos hébergements</a>
+                <a href="#activites" class="bg-white hover:bg-gray-100 text-amber-800 font-bold py-3 px-6 rounded-lg transition duration-300">Découvrir la région</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Region Presentation -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Pinet, cœur viticole du Languedoc</h2>
+                <div class="w-24 h-1 bg-amber-700 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Nichée entre mer et vignobles, Pinet est célèbre pour son Picpoul de Pinet, vin blanc frais et fruité. À seulement 20 minutes des plages et 30 minutes de Montpellier, c'est l'endroit idéal pour allier détente, gastronomie et découverte.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:shadow-lg transition duration-300">
+                    <i class="fas fa-wine-bottle text-5xl text-amber-700 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Vignobles & Dégustations</h3>
+                    <p class="text-gray-600">Découvrez les domaines viticoles alentours et dégustez les vins locaux, dont le fameux Picpoul de Pinet, lors de visites guidées.</p>
+                </div>
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:shadow-lg transition duration-300">
+                    <i class="fas fa-umbrella-beach text-5xl text-amber-700 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Plages Méditerranéennes</h3>
+                    <p class="text-gray-600">À seulement 15km, les plages de Sète, Marseillan et Mèze vous attendent avec leurs eaux turquoises et leurs restaurants de poissons frais.</p>
+                </div>
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:shadow-lg transition duration-300">
+                    <i class="fas fa-archway text-5xl text-amber-700 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Patrimoine & Culture</h3>
+                    <p class="text-gray-600">Explorez les villages typiques comme Pézenas, les étangs de Thau ou l'abbaye de Valmagne, témoins d'une histoire riche.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gîtes Section -->
+    <section id="gites" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Nos Gîtes à Pinet</h2>
+                <div class="w-24 h-1 bg-amber-700 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Trois hébergements indépendants, alliant charme traditionnel et confort moderne, au cœur des vignes héraultaises.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Gîte 1 -->
+                <div class="gite-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Gîte La Vigneronne" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-amber-700 text-white px-3 py-1 rounded-full text-sm font-semibold">À partir de 85€/nuit</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">La Vigneronne</h3>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="fas fa-users mr-2"></i>
+                            <span class="mr-4">4 personnes</span>
+                            <i class="fas fa-home mr-2"></i>
+                            <span>2 chambres</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Ancienne maison de vigneron rénovée avec goût, terrasse ombragée et vue sur les vignes. Parfait pour les familles.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">WiFi</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Piscine</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Cuisine équipée</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Parking</span>
+                        </div>
+                        <a href="#reservation" class="block w-full bg-amber-700 hover:bg-amber-800 text-white text-center py-2 px-4 rounded-lg transition duration-300">Voir disponibilités</a>
+                    </div>
+                </div>
+                
+                <!-- Gîte 2 -->
+                <div class="gite-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Gîte Le Clos des Oliviers" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-amber-700 text-white px-3 py-1 rounded-full text-sm font-semibold">À partir de 95€/nuit</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Le Clos des Oliviers</h3>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="fas fa-users mr-2"></i>
+                            <span class="mr-4">2 personnes</span>
+                            <i class="fas fa-home mr-2"></i>
+                            <span>1 chambre</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Cottage romantique avec jardin privatif et spa extérieur. Décoration contemporaine et équipements haut de gamme.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">WiFi</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Spa</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Terrasse</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Climatisation</span>
+                        </div>
+                        <a href="#reservation" class="block w-full bg-amber-700 hover:bg-amber-800 text-white text-center py-2 px-4 rounded-lg transition duration-300">Voir disponibilités</a>
+                    </div>
+                </div>
+                
+                <!-- Gîte 3 -->
+                <div class="gite-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Gîte La Bastide" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-amber-700 text-white px-3 py-1 rounded-full text-sm font-semibold">À partir de 120€/nuit</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">La Bastide</h3>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <i class="fas fa-users mr-2"></i>
+                            <span class="mr-4">6 personnes</span>
+                            <i class="fas fa-home mr-2"></i>
+                            <span>3 chambres</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Vaste maison de caractère avec piscine chauffée et grand jardin. Idéale pour les groupes ou les familles nombreuses.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">WiFi</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Piscine</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">BBQ</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Lave-linge</span>
+                        </div>
+                        <a href="#reservation" class="block w-full bg-amber-700 hover:bg-amber-800 text-white text-center py-2 px-4 rounded-lg transition duration-300">Voir disponibilités</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activites" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">À voir & À faire autour de Pinet</h2>
+                <div class="w-24 h-1 bg-amber-700 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Entre mer, vignobles et patrimoine, découvrez les richesses de l'Hérault lors de votre séjour.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Activity 1 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80" alt="Dégustation de vin" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Dégustation de vins</h3>
+                        <p class="text-gray-600 text-sm mb-3">Visitez les domaines viticoles de Pinet et dégustez le fameux Picpoul de Pinet, vin blanc local réputé.</p>
+                        <span class="text-xs text-amber-700 font-semibold">À 5 min</span>
+                    </div>
+                </div>
+                
+                <!-- Activity 2 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Plage de Sète" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Plages de Sète</h3>
+                        <p class="text-gray-600 text-sm mb-3">Détendez-vous sur les magnifiques plages de sable fin de Sète, à seulement 20 minutes en voiture.</p>
+                        <span class="text-xs text-amber-700 font-semibold">À 20 min</span>
+                    </div>
+                </div>
+                
+                <!-- Activity 3 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1582731595126-65a3695a073a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Pézenas" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Village de Pézenas</h3>
+                        <p class="text-gray-600 text-sm mb-3">Explorez ce village classé avec ses ruelles médiévales, boutiques d'artisans et hôtels particuliers.</p>
+                        <span class="text-xs text-amber-700 font-semibold">À 15 min</span>
+                    </div>
+                </div>
+                
+                <!-- Activity 4 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1600679472829-6d4a3f5c0a66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Étang de Thau" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-2">Étang de Thau</h3>
+                        <p class="text-gray-600 text-sm mb-3">Découvrez la faune et flore de cet étang salé, célèbre pour ses parcs à huîtres et ses villages de pêcheurs.</p>
+                        <span class="text-xs text-amber-700 font-semibold">À 25 min</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-flex items-center text-amber-700 hover:text-amber-800 font-semibold">
+                    Voir toutes les activités
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="avis" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Ce que disent nos hôtes</h2>
+                <div class="w-24 h-1 bg-amber-700 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Découvrez les retours de nos voyageurs après leur séjour dans nos gîtes.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sophie M.">
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-gray-900">Sophie M.</p>
+                            <div class="flex text-amber-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Un séjour parfait dans le gîte La Vigneronne. L'emplacement est idéal pour visiter la région entre mer et vignobles. La maison est très bien équipée et la piscine était très appréciable. Nous reviendrons certainement!"</p>
+                    <p class="text-sm text-gray-500 mt-2">Août 2023</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Pierre L.">
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-gray-900">Pierre L.</p>
+                            <div class="flex text-amber-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Le Clos des Oliviers est un véritable coup de cœur! Le spa extérieur après une journée de visite était divin. L'accueil était chaleureux avec une bouteille de Picpoul de Pinet en bienvenue. Nous recommandons vivement!"</p>
+                    <p class="text-sm text-gray-500 mt-2">Juin 2023</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Élodie T.">
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-gray-900">Élodie T.</p>
+                            <div class="flex text-amber-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"La Bastide a largement dépassé nos attentes! Assez spacieuse pour nos 2 familles (6 personnes), avec une superbe piscine et un grand jardin. La décoration est soignée et l'emplacement parfait pour rayonner dans la région. Merci!"</p>
+                    <p class="text-sm text-gray-500 mt-2">Juillet 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section id="reservation" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-amber-700 p-8 text-white">
+                        <h2 class="text-2xl font-bold mb-4">Réservez votre séjour</h2>
+                        <p class="mb-6">Remplissez ce formulaire pour vérifier les disponibilités et obtenir un devis personnalisé pour votre séjour à Pinet.</p>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3"></i>
+                            <div>
+                                <p class="text-sm">Vous préférez téléphoner?</p>
+                                <p class="font-bold">+33 6 12 34 56 78</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-8">
+                        <form id="bookingForm">
+                            <div class="mb-4">
+                                <label for="gite" class="block text-sm font-medium text-gray-700 mb-1">Gîte souhaité</label>
+                                <select id="gite" name="gite" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500">
+                                    <option value="">Sélectionnez un gîte</option>
+                                    <option value="vigneronne">La Vigneronne (4 pers.)</option>
+                                    <option value="clos">Le Clos des Oliviers (2 pers.)</option>
+                                    <option value="bastide">La Bastide (6 pers.)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label for="arrival" class="block text-sm font-medium text-gray-700 mb-1">Arrivée</label>
+                                    <input type="date" id="arrival" name="arrival" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500">
+                                </div>
+                                <div>
+                                    <label for="departure" class="block text-sm font-medium text-gray-700 mb-1">Départ</label>
+                                    <input type="date" id="departure" name="departure" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="guests" class="block text-sm font-medium text-gray-700 mb-1">Nombre de personnes</label>
+                                <input type="number" id="guests" name="guests" min="1" max="6" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message (facultatif)</label>
+                                <textarea id="message" name="message" rows="2" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-amber-700 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded-md transition duration-300">Vérifier la disponibilité</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Availability Calendar -->
+            <div class="mt-12">
+                <h3 class="text-xl font-bold text-center mb-6">Calendrier de disponibilité</h3>
+                <div class="availability-calendar bg-white rounded-lg shadow-md p-6">
+                    <div class="flex justify-between mb-4">
+                        <button class="px-3 py-1 rounded-md bg-gray-200 hover:bg-gray-300">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <h4 class="font-semibold">Septembre 2023</h4>
+                        <button class="px-3 py-1 rounded-md bg-gray-200 hover:bg-gray-300">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-7 gap-1 text-center">
+                        <div class="font-medium text-sm py-2">Lun</div>
+                        <div class="font-medium text-sm py-2">Mar</div>
+                        <div class="font-medium text-sm py-2">Mer</div>
+                        <div class="font-medium text-sm py-2">Jeu</div>
+                        <div class="font-medium text-sm py-2">Ven</div>
+                        <div class="font-medium text-sm py-2">Sam</div>
+                        <div class="font-medium text-sm py-2">Dim</div>
+                        
+                        <!-- Calendar days -->
+                        <div class="py-2"></div> <!-- Empty day -->
+                        <div class="py-2"></div> <!-- Empty day -->
+                        <div class="py-2"></div> <!-- Empty day -->
+                        <div class="py-2"></div> <!-- Empty day -->
+                        <div class="py-2"></div> <!-- Empty day -->
+                        <div class="py-2 available rounded-full">1</div>
+                        <div class="py-2 available rounded-full">2</div>
+                        
+                        <div class="py-2 available rounded-full">3</div>
+                        <div class="py-2 available rounded-full">4</div>
+                        <div class="py-2 available rounded-full">5</div>
+                        <div class="py-2 available rounded-full">6</div>
+                        <div class="py-2 available rounded-full">7</div>
+                        <div class="py-2 available rounded-full">8</div>
+                        <div class="py-2 available rounded-full">9</div>
+                        
+                        <div class="py-2 available rounded-full">10</div>
+                        <div class="py-2 available rounded-full">11</div>
+                        <div class="py-2 booked rounded-full">12</div>
+                        <div class="py-2 booked rounded-full">13</div>
+                        <div class="py-2 booked rounded-full">14</div>
+                        <div class="py-2 available rounded-full">15</div>
+                        <div class="py-2 available rounded-full">16</div>
+                        
+                        <div class="py-2 available rounded-full">17</div>
+                        <div class="py-2 available rounded-full">18</div>
+                        <div class="py-2 available rounded-full">19</div>
+                        <div class="py-2 available rounded-full">20</div>
+                        <div class="py-2 available rounded-full">21</div>
+                        <div class="py-2 available rounded-full">22</div>
+                        <div class="py-2 available rounded-full">23</div>
+                        
+                        <div class="py-2 available rounded-full">24</div>
+                        <div class="py-2 available rounded-full">25</div>
+                        <div class="py-2 available rounded-full">26</div>
+                        <div class="py-2 available rounded-full">27</div>
+                        <div class="py-2 available rounded-full">28</div>
+                        <div class="py-2 available rounded-full">29</div>
+                        <div class="py-2 available rounded-full">30</div>
+                    </div>
+                    <div class="flex justify-center mt-4 gap-4">
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-amber-700 rounded-full mr-2"></div>
+                            <span class="text-sm">Disponible</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-gray-300 rounded-full mr-2"></div>
+                            <span class="text-sm">Réservé</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Nous contacter</h2>
+                <div class="w-24 h-1 bg-amber-700 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Pour toute question ou demande d'information, n'hésitez pas à nous contacter.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-6">Informations de contact</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-amber-700 mt-1"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-gray-900">Adresse</p>
+                                    <p class="text-sm text-gray-500">21 avenue de Pomerols, 34850 Pinet, France</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-phone-alt text-amber-700 mt-1"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-gray-900">Téléphone</p>
+                                    <p class="text-sm text-gray-500">06 71 21 74 66</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-envelope text-amber-700 mt-1"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-gray-900">Email</p>
+                                    <p class="text-sm text-gray-500">daniel.murria</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold mb-4">Horaires d'ouverture</h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-sm">
+                                    <span class="font-medium">Lundi - Vendredi</span>
+                                    <span>9h - 18h</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="font-medium">Samedi</span>
+                                    <span>10h - 16h</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="font-medium">Dimanche</span>
+                                    <span>Fermé</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-6">Envoyez-nous un message</h3>
+                        <form>
+                            <div class="grid grid-cols-1 gap-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700">Nom complet</label>
+                                    <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-amber-500 focus:border-amber-500">
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                                    <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-amber-500 focus:border-amber-500">
+                                </div>
+                                
+                                <div>
+                                    <label for="subject" class="block text-sm font-medium text-gray-700">Sujet</label>
+                                    <select id="subject" name="subject" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-amber-500 focus:border-amber-500">
+                                        <option value="">Sélectionnez un sujet</option>
+                                        <option value="reservation">Demande de réservation</option>
+                                        <option value="information">Demande d'information</option>
+                                        <option value="other">Autre</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                                    <textarea id="message" name="message" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-amber-500 focus:border-amber-500"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <button type="submit" class="w-full bg-amber-700 hover:bg-amber-800 text-white font-bold py-2 px-4 rounded-md transition duration-300">Envoyer le message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map -->
+            <div class="mt-12 bg-white rounded-lg shadow-md overflow-hidden">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885.373333333333!2d3.5083333153652344!3d43.40611197913679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b6a3e5e47e5a5d%3A0x40819a5fd970220!2sPinet%2C%20France!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Gîtes de Pinet</h3>
+                    <p class="text-gray-400">Location saisonnière de charme au cœur des vignobles de l'Hérault, entre mer et patrimoine.</p>
+                    <div class="flex mt-4 space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-tripadvisor"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Liens rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#accueil" class="text-gray-400 hover:text-white">Accueil</a></li>
+                        <li><a href="#gites" class="text-gray-400 hover:text-white">Nos Gîtes</a></li>
+                        <li><a href="#activites" class="text-gray-400 hover:text-white">À voir/faire</a></li>
+                        <li><a href="#avis" class="text-gray-400 hover:text-white">Avis clients</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Nos gîtes</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">La Vigneronne</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Le Clos des Oliviers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">La Bastide</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Abonnez-vous pour recevoir nos offres spéciales et actualités.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Votre email" class="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-amber-700 hover:bg-amber-800 px-4 py-2 rounded-r-md">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2023 Gîtes de Pinet. Tous droits réservés.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Mentions légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Politique de confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('button[aria-controls="mobile-menu"]');
+            // In a real implementation, you would toggle a mobile menu here
+            mobileMenuButton.addEventListener('click', function() {
+                alert('Menu mobile à implémenter');
+            });
+            
+            // Simple form submission handler
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Formulaire soumis! En production, cela enverrait les données au serveur.');
+                });
+            });
+        });
+    </script>
+
+<script>
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+  fetch("https://script.google.com/macros/s/AKfycbwOStFs1yMQ-XF9ctQ4xzfrjUoAF8492ccbTxDAOH69kMRFlB34-8wzKGLF973LyH8z/exec", {
+
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.text())
+  .then(text => {
+    alert("Demande envoyée avec succès !");
+    form.reset();
+  })
+  .catch(error => {
+    alert("Erreur lors de l'envoi : " + error.message);
+  });
+});
+</script>
+
+</body>
+</html>
