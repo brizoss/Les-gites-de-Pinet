@@ -496,7 +496,7 @@
 <div>
 <div class="bg-white p-8 rounded-lg shadow-md">
 <h3 class="text-xl font-bold mb-6">Envoyez-nous un message</h3>
-<form>
+<form action="https://script.google.com/macros/s/AKfycbwOStFs1yMQ-XFgctQ4xzfrjUoAF8492cCbTxDAOH69kMRFlB34-8wzKGLF973LyH8z/exec" id="contactForm" method="POST" onsubmit="submitted=true; setTimeout(() =&gt; { alert('Message envoyé avec succès !'); this.reset(); }, 1000);" target="hidden_iframe">
 <div class="grid grid-cols-1 gap-6">
 <div>
 <label class="block text-sm font-medium text-gray-700" for="name">Nom complet</label>
@@ -590,44 +590,5 @@
 </div>
 </div>
 </footer>
-<script>
-        // Simple script for mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.querySelector('button[aria-controls="mobile-menu"]');
-            // In a real implementation, you would toggle a mobile menu here
-            mobileMenuButton.addEventListener('click', function() {
-                alert('Menu mobile à implémenter');
-            });
-            
-            // Simple form submission handler
-            const forms = document.querySelectorAll('form');
-            forms.forEach(form => {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Formulaire soumis! En production, cela enverrait les données au serveur.');
-                });
-            });
-        });
-</script>
-        <script>
-document.getElementById('bookingForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const formData = new FormData(form);
-  fetch("https://script.google.com/macros/s/AKfycbwOStFs1yMQ-XF9ctQ4xzfrjUoAF8492ccbTxDAOH69kMRFlB34-8wzKGLF973LyH8z/exec", {
-
-    method: "POST",
-    body: formData
-  })
-  .then(response => response.text())
-  .then(text => {
-    alert("Demande envoyée avec succès !");
-    form.reset();
-  })
-  .catch(error => {
-    alert("Erreur lors de l'envoi : " + error.message);
-  });
-});
-</script>
 <iframe id="hidden_iframe" name="hidden_iframe" style="display:none;"></iframe></body>
 </html>
