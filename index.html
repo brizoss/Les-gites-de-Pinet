@@ -623,7 +623,11 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
   .then(text => {
     alert("Demande envoyée avec succès !");
     form.reset();
+  })
+  .catch(error => {
+    alert("Erreur lors de l'envoi : " + error.message);
   });
+});
 </script>
 <iframe id="hidden_iframe" name="hidden_iframe" style="display:none;"></iframe></body>
 </html>
