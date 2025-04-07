@@ -656,7 +656,16 @@
                 </div>
                 
                 <div class="mt-8">
-                    <button type="submit" class="w-full bg-primary hover:bg-secondary text-white px-6 py-3 rounded-md transition font-medium">
+                    <button type="submit" 
+                            class="w-full bg-primary hover:bg-secondary text-white px-6 py-3 rounded-md transition duration-200 ease-in-out font-medium 
+                                   shadow-md hover:shadow-lg 
+                                   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-light"> 
+                            <!-- Explication des classes ajoutées/modifiées :
+                                - shadow-md hover:shadow-lg: Ajoute une ombre pour la visibilité et l'interaction.
+                                - duration-200 ease-in-out: Ajuste la vitesse de transition.
+                                - focus:*: Styles pour l'accessibilité (contour au focus clavier).
+                                - focus:ring-offset-light: Définit le décalage du contour focus (peut nécessiter --light dans :root si non reconnu, utiliser focus:ring-offset-white sinon).
+                            -->
                         Envoyer ma demande de réservation
                     </button>
                 </div>
