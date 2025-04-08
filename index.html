@@ -722,7 +722,28 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
                 </div>
             </form>
         </div>
-    </section>
+    
+<!-- FORMULAIRE DE TEST DOPOST -->
+<section id="test-dopost" class="py-16 bg-white">
+  <div class="max-w-3xl mx-auto px-4">
+    <h2 class="text-2xl font-bold text-primary mb-6 text-center">Formulaire de test direct vers Google Apps Script</h2>
+    <form method="POST" action="https://script.google.com/macros/s/AKfycbxZQ75AkH3wVUE9hWrvjocZdBy4TOyXmbrnOq7MJuOcgayZlaC08edToZTZRQ7WHI5FSA/exec" class="bg-light p-6 rounded-lg shadow-lg">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input name="lastname" placeholder="Nom" required class="px-4 py-2 border rounded-md">
+        <input name="firstname" placeholder="Prénom" required class="px-4 py-2 border rounded-md">
+        <input name="email" type="email" placeholder="Email" required class="px-4 py-2 border rounded-md">
+        <input name="phone" placeholder="Téléphone" class="px-4 py-2 border rounded-md">
+        <input name="gite" placeholder="Gîte" class="px-4 py-2 border rounded-md">
+        <input name="people" type="number" placeholder="Personnes" class="px-4 py-2 border rounded-md">
+        <input name="arrival" type="date" placeholder="Arrivée" class="px-4 py-2 border rounded-md">
+        <input name="departure" type="date" placeholder="Départ" class="px-4 py-2 border rounded-md">
+      </div>
+      <textarea name="message" placeholder="Message" rows="4" class="w-full mt-4 px-4 py-2 border rounded-md"></textarea>
+      <button type="submit" class="mt-6 w-full bg-primary text-white py-2 rounded-md hover:bg-secondary transition">Tester l'envoi</button>
+    </form>
+  </div>
+</section>
+</section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-light">
