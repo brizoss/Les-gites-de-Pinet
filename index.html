@@ -20,7 +20,7 @@
             font-family: 'Montserrat', sans-serif;
             color: var(--dark);
             background-color: var(--light);
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; /* Active le défilement doux pour les ancres */
         }
 
         h1, h2, h3 {
@@ -51,13 +51,14 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
+        /* Styles pour les sliders */
         .slide {
             transition: opacity 1s ease-in-out;
         }
 
         .slide.active {
             opacity: 1;
-            display: block; /* Ensure active slide is visible */
+            display: block; /* Assure que le slide actif est visible */
         }
 
         .slide:not(.active) {
@@ -67,7 +68,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            display: none; /* Hide inactive slides completely */
+            display: none; /* Cache complètement les slides inactifs */
+        }
+
+        /* Style pour le point actif du carrousel */
+        .active-dot {
+            background-color: var(--primary); /* Utilise la couleur primaire */
+            opacity: 1;
         }
 
         .gallery-grid {
@@ -85,13 +92,8 @@
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
             .slide:not(.active) {
-                position: absolute; /* Keep absolute positioning for stacking */
+                position: absolute; /* Maintient la position absolue pour la superposition */
             }
-        }
-        /* Style pour le point actif du carrousel */
-        .active-dot {
-            background-color: var(--primary); /* Utilise la couleur primaire définie */
-            opacity: 1;
         }
     </style>
 </head>
@@ -101,7 +103,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="#" class="text-xl font-bold text-primary-800 flex items-center">
+                    <a href="#home" class="text-xl font-bold text-primary-800 flex items-center">
                         <span class="handwritten text-2xl text-primary">Les Gîtes</span>
                         <span class="text-sm ml-1">de Pinet</span>
                     </a>
@@ -197,36 +199,31 @@
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-primary mb-4">Nos Gîtes</h2>
                 <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
-                <p class="max-w-3xl mx-auto text-lg text-gray-700">Deux gîtes indépendants, tout confort, pour des séjours inoubliables entre vignes et Méditerranée.Gîte classé 3 étoiles situé au cœur de l'appellation AOP Picpoul de Pinet, à 10 km des plages de Marseillan et Mèze, il dispose de 2 chambres pour chacune WC et salle d'eau, un séjour cuisine tout équipé et une terrasse de 18 m² donnant accès direct à une piscine sécurisée par volet roulant.le gîte dispose de la climatisation.
-La superficie du gîte est de 68m².</p>
-
- <p class="max-w-3xl mx-auto text-lg text-gray-700">Un abri couvert permet de stationner votre véhicule et il dispose d'un barbecue.
-
-Le gîte est à 250 mètres du cœur du village, au milieu du vignoble.</p>
- <p class="max-w-3xl mx-auto text-lg text-gray-700">La station balnéaire d'Aide est à 10 km ainsi que Pézenas cité de Molière.
-
-Nous acceptons les animaux.
-Le gîte est jumelé avec un autre gîte identique et les propriétaires sont sur place.</p>
+                <p class="max-w-3xl mx-auto text-lg text-gray-700 mb-4">Deux gîtes indépendants, tout confort, pour des séjours inoubliables entre vignes et Méditerranée. Gîte classé 3 étoiles situé au cœur de l'appellation AOP Picpoul de Pinet, à 10 km des plages de Marseillan et Mèze, il dispose de 2 chambres pour chacune WC et salle d'eau, un séjour cuisine tout équipé et une terrasse de 18 m² donnant accès direct à une piscine sécurisée par volet roulant. Le gîte dispose de la climatisation.</p>
+                <p class="max-w-3xl mx-auto text-lg text-gray-700 mb-4">La superficie du gîte est de 68m².</p>
+                <p class="max-w-3xl mx-auto text-lg text-gray-700 mb-4">Un abri couvert permet de stationner votre véhicule et il dispose d'un barbecue.</p>
+                <p class="max-w-3xl mx-auto text-lg text-gray-700 mb-4">Le gîte est à 250 mètres du cœur du village, au milieu du vignoble.</p>
+                <p class="max-w-3xl mx-auto text-lg text-gray-700">La station balnéaire d'Agde est à 10 km ainsi que Pézenas cité de Molière. Nous acceptons les animaux. Le gîte est jumelé avec un autre gîte identique et les propriétaires sont sur place.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 mb-16">
                 <!-- Gite 1 Card -->
                 <div class="gite-card bg-white rounded-lg overflow-hidden shadow-lg">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_105651.jpg" alt="Gîte 1" class="w-full h-full object-cover">
+                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_105651.jpg" alt="Gîte Regina 1" class="w-full h-full object-cover">
                         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
                             <h3 class="text-2xl font-bold text-white">Regina 1</h3>
                             <p class="text-white">2-5 personnes • 68m² • Terrasse privée</p>
                         </div>
                     </div>
                     <div class="p-6">
-                        <div class="flex justify-between items-start mb-4">
+                        <div class="flex justify-between items-start mb-4 flex-wrap"> <!-- Added flex-wrap -->
                             <div>
                                 <p class="text-gray-600 mb-2"><i class="fas fa-home mr-2 text-primary"></i> Maison indépendante</p>
                                 <p class="text-gray-600 mb-2"><i class="fas fa-bed mr-2 text-primary"></i> 1 chambre + canapé-lit</p>
                                 <p class="text-gray-600"><i class="fas fa-utensils mr-2 text-primary"></i> Cuisine équipée</p>
                             </div>
-                            <div class="bg-primary text-white px-3 py-1 rounded-full text-sm">À partir de 500€/semaine en basse saison</div>
+                            <div class="bg-primary text-white px-3 py-1 rounded-full text-sm mt-2 sm:mt-0">À partir de 500€/semaine</div>
                         </div>
                         <p class="text-gray-700 mb-4">Ce gîte lumineux et moderne vous accueille avec son ambiance chaleureuse et sa terrasse ensoleillée, idéale pour les petits déjeuners au calme.</p>
                         <a href="#gite1" class="text-primary font-medium hover:text-secondary transition flex items-center">
@@ -238,20 +235,20 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
                 <!-- Gite 2 Card -->
                 <div class="gite-card bg-white rounded-lg overflow-hidden shadow-lg">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="https://les-gites-de-pinet.netlify.app/IMG_20210407_105210.jpg" alt="Gîte 2" class="w-full h-full object-cover">
+                        <img src="https://les-gites-de-pinet.netlify.app/IMG_20210407_105210.jpg" alt="Gîte Regina 2" class="w-full h-full object-cover">
                         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
                             <h3 class="text-2xl font-bold text-white">Regina 2</h3>
                             <p class="text-white">2-5 personnes • 68m² • Jardin partagé</p>
                         </div>
                     </div>
                     <div class="p-6">
-                        <div class="flex justify-between items-start mb-4">
+                        <div class="flex justify-between items-start mb-4 flex-wrap"> <!-- Added flex-wrap -->
                             <div>
                                 <p class="text-gray-600 mb-2"><i class="fas fa-home mr-2 text-primary"></i> Maison indépendante</p>
                                 <p class="text-gray-600 mb-2"><i class="fas fa-bed mr-2 text-primary"></i> 2 chambres</p>
                                 <p class="text-gray-600"><i class="fas fa-utensils mr-2 text-primary"></i> Cuisine équipée</p>
                             </div>
-                            <div class="bg-primary text-white px-3 py-1 rounded-full text-sm">À partir de 500€/semaine en basse saison , jusqu'à 1050€/semaine en haute saison</div>
+                            <div class="bg-primary text-white px-3 py-1 rounded-full text-sm mt-2 sm:mt-0">À partir de 500€/semaine</div>
                         </div>
                         <p class="text-gray-700 mb-4">Avec son charme provençal et son espace extérieur arboré, ce gîte est parfait pour les familles ou groupes d'amis.</p>
                         <a href="#gite2" class="text-primary font-medium hover:text-secondary transition flex items-center">
@@ -262,9 +259,9 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
             </div>
 
             <!-- Gite 1 Details -->
-            <div id="gite1" class="bg-white rounded-lg shadow-lg overflow-hidden mb-16">
+            <div id="gite1" class="bg-white rounded-lg shadow-lg overflow-hidden mb-16 scroll-mt-20"> <!-- scroll-mt-20 ajoute marge pour ancre -->
                 <div class="md:flex">
-                    <div class="md:w-1/2 h-96 md:h-auto"> <!-- Added fixed height for mobile, auto for md -->
+                    <div class="md:w-1/2 h-96 md:h-auto">
                         <div class="relative h-full">
                             <div id="gite1-slider" class="h-full relative">
                                 <div class="slide active h-full">
@@ -280,7 +277,7 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
                                     <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_104606.jpg" alt="Gîte 1 - Salle de bain" class="w-full h-full object-cover">
                                 </div>
                             </div>
-                            <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10"> <!-- Added z-index -->
+                            <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10">
                                 <button onclick="showSlide('gite1-slider', 0)" class="gite1-dot w-3 h-3 rounded-full bg-white border border-primary opacity-75 hover:opacity-100 focus:outline-none"></button>
                                 <button onclick="showSlide('gite1-slider', 1)" class="gite1-dot w-3 h-3 rounded-full bg-white border border-primary opacity-75 hover:opacity-100 focus:outline-none"></button>
                                 <button onclick="showSlide('gite1-slider', 2)" class="gite1-dot w-3 h-3 rounded-full bg-white border border-primary opacity-75 hover:opacity-100 focus:outline-none"></button>
@@ -290,65 +287,26 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
                     </div>
                     <div class="md:w-1/2 p-8">
                         <h3 class="text-2xl font-bold text-primary mb-4">Regina 1 - Détails</h3>
-                        <p class="text-gray-700 mb-6">Ce gîte contemporain de 68 m² peut accueillir jusqu'à 4 personnes avec une chambre séparée et un canapé-lit confortable dans le salon.</p>
+                        <p class="text-gray-700 mb-6">Ce gîte contemporain de 68 m² peut accueillir jusqu'à 5 personnes avec une chambre séparée et un canapé-lit confortable dans le salon.</p>
 
                         <div class="grid grid-cols-2 gap-4 mb-6">
-                            <div class="flex items-center">
-                                <i class="fas fa-wifi text-primary mr-2"></i>
-                                <span>Wi-Fi gratuit</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-tv text-primary mr-2"></i>
-                                <span>Télévision</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-thermometer-three-quarters text-primary mr-2"></i>
-                                <span>Chauffage</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-parking text-primary mr-2"></i>
-                                <span>Parking privé</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-tshirt text-primary mr-2"></i>
-                                <span>Lave-linge</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-umbrella-beach text-primary mr-2"></i>
-                                <span>Terrasse meublée</span>
-                            </div>
+                            <div class="flex items-center"><i class="fas fa-wifi text-primary mr-2"></i><span>Wi-Fi gratuit</span></div>
+                            <div class="flex items-center"><i class="fas fa-tv text-primary mr-2"></i><span>Télévision</span></div>
+                            <div class="flex items-center"><i class="fas fa-thermometer-three-quarters text-primary mr-2"></i><span>Chauffage</span></div>
+                            <div class="flex items-center"><i class="fas fa-parking text-primary mr-2"></i><span>Parking privé</span></div>
+                            <div class="flex items-center"><i class="fas fa-tshirt text-primary mr-2"></i><span>Lave-linge</span></div>
+                            <div class="flex items-center"><i class="fas fa-umbrella-beach text-primary mr-2"></i><span>Terrasse meublée</span></div>
                         </div>
 
                         <h4 class="font-bold text-primary mb-2">Tarifs (pour 5 personnes) :</h4>
-                        <ul class="mb-6">
-                            <li class="flex justify-between py-1 border-b border-gray-100">
-                                <span>Basse saison</span>
-                                <span class="font-medium">500€/semaine</span>
-                            </li>
-                            <li class="flex justify-between py-1 border-b border-gray-100">
-                                <span>Moyenne saison</span>
-                                <span class="font-medium">700€/nuit</span>
-                            </li>
-                            <li class="flex justify-between py-1">
-                                <span>Haute saison</span>
-                                <span class="font-medium">1050 €/semaine</span>
-                            </li>
-							<li class="flex justify-between py-1">
-                                <span>Caution:</span>
-                             <span class="font-medium"> 400euros</span>
-                            </li>
-							<li class="flex justify-between py-1">
-                                <span>Piscine</span>
-                                <span class="font-medium">ouverte : 9h00-20h00 (d'avril à septembre)</span>
-                            </li>
-							<li class="flex justify-between py-1">
-                                <span>Animaux</span>
-                                <span class="font-medium">Gratuit</span>
-                            </li>
-				<span>Forfait Ménage (en option)</span>
-							<li class="flex justify-between py-1">
-                                <span class="font-medium">100 euros</span>				
-                            </li>
+                        <ul class="mb-6 text-sm">
+                            <li class="flex justify-between py-1 border-b border-gray-100"><span>Basse saison</span><span class="font-medium">500€/semaine</span></li>
+                            <li class="flex justify-between py-1 border-b border-gray-100"><span>Moyenne saison</span><span class="font-medium">700€/semaine</span></li>
+                            <li class="flex justify-between py-1 border-b border-gray-100"><span>Haute saison</span><span class="font-medium">1050€/semaine</span></li>
+                            <li class="flex justify-between py-1 border-b border-gray-100"><span>Caution</span><span class="font-medium">400€</span></li>
+                            <li class="flex justify-between py-1 border-b border-gray-100"><span>Piscine (Avr-Sep)</span><span class="font-medium">9h-20h</span></li>
+                            <li class="flex justify-between py-1 border-b border-gray-100"><span>Animaux</span><span class="font-medium">Acceptés (Gratuit)</span></li>
+                            <li class="flex justify-between py-1"><span>Forfait Ménage (Option)</span><span class="font-medium">100€</span></li>
                         </ul>
 
                         <a href="#booking" class="bg-primary hover:bg-secondary text-white px-6 py-3 rounded-md transition inline-block">Réserver ce gîte</a>
@@ -358,18 +316,18 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
                 <div class="p-6 border-t border-gray-100">
                     <h4 class="font-bold text-primary mb-4">Galerie complète</h4>
                     <div class="gallery-grid">
-                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_104624.jpg" alt="Gîte 1" class="rounded-lg h-40 w-full object-cover">
-                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_104639.jpg" alt="Gîte 1" class="rounded-lg h-40 w-full object-cover">
-                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_104710.jpg" alt="Gîte 1" class="rounded-lg h-40 w-full object-cover">
-                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_104725.jpg" alt="Gîte 1" class="rounded-lg h-40 w-full object-cover">
+                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_104624.jpg" alt="Gîte 1 Galerie" class="rounded-lg h-40 w-full object-cover">
+                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_104639.jpg" alt="Gîte 1 Galerie" class="rounded-lg h-40 w-full object-cover">
+                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_104710.jpg" alt="Gîte 1 Galerie" class="rounded-lg h-40 w-full object-cover">
+                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_104725.jpg" alt="Gîte 1 Galerie" class="rounded-lg h-40 w-full object-cover">
                     </div>
                 </div>
             </div>
 
             <!-- Gite 2 Details -->
-            <div id="gite2" class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div id="gite2" class="bg-white rounded-lg shadow-lg overflow-hidden scroll-mt-20"> <!-- scroll-mt-20 ajoute marge pour ancre -->
                 <div class="md:flex">
-                    <div class="md:w-1/2 h-96 md:h-auto"> <!-- Added fixed height for mobile, auto for md -->
+                    <div class="md:w-1/2 h-96 md:h-auto">
                         <div class="relative h-full">
                             <div id="gite2-slider" class="h-full relative">
                                 <div class="slide active h-full">
@@ -385,7 +343,7 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
                                     <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_104742.jpg" alt="Gîte 2 - Chambre 2" class="w-full h-full object-cover">
                                 </div>
                             </div>
-                            <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10"> <!-- Added z-index -->
+                            <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10">
                                 <button onclick="showSlide('gite2-slider', 0)" class="gite2-dot w-3 h-3 rounded-full bg-white border border-primary opacity-75 hover:opacity-100 focus:outline-none"></button>
                                 <button onclick="showSlide('gite2-slider', 1)" class="gite2-dot w-3 h-3 rounded-full bg-white border border-primary opacity-75 hover:opacity-100 focus:outline-none"></button>
                                 <button onclick="showSlide('gite2-slider', 2)" class="gite2-dot w-3 h-3 rounded-full bg-white border border-primary opacity-75 hover:opacity-100 focus:outline-none"></button>
@@ -398,68 +356,24 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
                         <p class="text-gray-700 mb-6">Avec ses 68m² et ses deux chambres séparées, ce gîte au charme provençal est idéal pour les familles ou groupes d'amis jusqu'à 5 personnes.</p>
 
                         <div class="grid grid-cols-2 gap-4 mb-6">
-                            <div class="flex items-center">
-                                <i class="fas fa-wifi text-primary mr-2"></i>
-                                <span>Wi-Fi gratuit</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-tv text-primary mr-2"></i>
-                                <span>Télévision</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-thermometer-three-quarters text-primary mr-2"></i>
-                                <span>Chauffage/climatisation</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-parking text-primary mr-2"></i>
-                                <span>Parking privé</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-tshirt text-primary mr-2"></i>
-                                <span>Lave-linge</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-tree text-primary mr-2"></i>
-                                <span>Jardin partagé</span>
-                            </div>
+                            <div class="flex items-center"><i class="fas fa-wifi text-primary mr-2"></i><span>Wi-Fi gratuit</span></div>
+                            <div class="flex items-center"><i class="fas fa-tv text-primary mr-2"></i><span>Télévision</span></div>
+                            <div class="flex items-center"><i class="fas fa-thermometer-three-quarters text-primary mr-2"></i><span>Climatisation</span></div>
+                            <div class="flex items-center"><i class="fas fa-parking text-primary mr-2"></i><span>Parking privé</span></div>
+                            <div class="flex items-center"><i class="fas fa-tshirt text-primary mr-2"></i><span>Lave-linge</span></div>
+                            <div class="flex items-center"><i class="fas fa-tree text-primary mr-2"></i><span>Jardin partagé</span></div>
                         </div>
 
                         <h4 class="font-bold text-primary mb-2">Tarifs (pour 5 personnes) :</h4>
-                        <ul class="mb-6">
-                            <li class="flex justify-between py-1 border-b border-gray-100">
-                                <span>Basse saison</span>
-                                <span class="font-medium">500€/semaine</span>
-                            </li>
-                            <li class="flex justify-between py-1 border-b border-gray-100">
-                                <span>Moyenne saison</span>
-                                <span class="font-medium">750€/semaine</span>
-                            </li>
-                            <li class="flex justify-between py-1">
-                                <span>Haute saison</span>
-                                <span class="font-medium">1050€/semaine</span>
-                            </li>
-							<li class="flex justify-between py-1">
-                                <span>Caution:</span>
-                             <span class="font-medium"> 400euros</span>
-                            </li>
-							<li class="flex justify-between py-1">
-                                <span>Piscine</span>
-                                <span class="font-medium">ouverte : 9h00-20h00 (d'avril à septembre)</span>
-                            </li>
-							<li class="flex justify-between py-1">
-                                <span>Animaux</span>
-                                <span class="font-medium">Gratuit</span>
-
-				<span class="font-medium"></span>
-                            </li>
-				
-                                <span>Forfait Ménage (en option)</span>
-							<li class="flex justify-between py-1">
-                                <span class="font-medium">100 euros</span>				
-                            </li>
+                        <ul class="mb-6 text-sm">
+                            <li class="flex justify-between py-1 border-b border-gray-100"><span>Basse saison</span><span class="font-medium">500€/semaine</span></li>
+                            <li class="flex justify-between py-1 border-b border-gray-100"><span>Moyenne saison</span><span class="font-medium">750€/semaine</span></li>
+                            <li class="flex justify-between py-1 border-b border-gray-100"><span>Haute saison</span><span class="font-medium">1050€/semaine</span></li>
+                            <li class="flex justify-between py-1 border-b border-gray-100"><span>Caution</span><span class="font-medium">400€</span></li>
+                            <li class="flex justify-between py-1 border-b border-gray-100"><span>Piscine (Avr-Sep)</span><span class="font-medium">9h-20h</span></li>
+                            <li class="flex justify-between py-1 border-b border-gray-100"><span>Animaux</span><span class="font-medium">Acceptés (Gratuit)</span></li>
+                            <li class="flex justify-between py-1"><span>Forfait Ménage (Option)</span><span class="font-medium">100€</span></li>
                         </ul>
-
-                        <p class="text-sm text-gray-500 mb-4"></p>
 
                         <a href="#booking" class="bg-primary hover:bg-secondary text-white px-6 py-3 rounded-md transition inline-block">Réserver ce gîte</a>
                     </div>
@@ -468,10 +382,10 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
                 <div class="p-6 border-t border-gray-100">
                     <h4 class="font-bold text-primary mb-4">Galerie complète</h4>
                     <div class="gallery-grid">
-                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_105102.jpg" alt="Gîte 2" class="rounded-lg h-40 w-full object-cover">
-                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_105514.jpg" alt="Gîte 2" class="rounded-lg h-40 w-full object-cover">
-                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_105525.jpg" alt="Gîte 2" class="rounded-lg h-40 w-full object-cover">
-                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_105038.jpg" alt="Gîte 2" class="rounded-lg h-40 w-full object-cover">
+                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_105102.jpg" alt="Gîte 2 Galerie" class="rounded-lg h-40 w-full object-cover">
+                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_105514.jpg" alt="Gîte 2 Galerie" class="rounded-lg h-40 w-full object-cover">
+                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_105525.jpg" alt="Gîte 2 Galerie" class="rounded-lg h-40 w-full object-cover">
+                        <img src="https://les-gites-de-pinet.netlify.app/images/IMG_20210407_105038.jpg" alt="Gîte 2 Galerie" class="rounded-lg h-40 w-full object-cover">
                     </div>
                 </div>
             </div>
@@ -489,99 +403,62 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
 
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="relative rounded-lg overflow-hidden shadow-lg h-80">
-                    <img src="https://les-gites-de-pinet.netlify.app/images/mer.png" alt="Plage" class="w-full h-full object-cover">
+                    <img src="https://les-gites-de-pinet.netlify.app/images/mer.png" alt="Plage Méditerranée" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-6">
                         <div>
                             <h3 class="text-xl font-bold text-white mb-2">Plages méditerranéennes</h3>
-                            <p class="text-white">À seulement 15 minutes, les plages de Marseillan, Mèze et Sète vous attendent pour des baignades inoubliables.</p>
+                            <p class="text-white">À seulement 15 minutes, les plages de Marseillan, Mèze et Sète vous attendent.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="relative rounded-lg overflow-hidden shadow-lg h-80">
-                    <img src="https://les-gites-de-pinet.netlify.app/images/velo.png" alt="Vignoble" class="w-full h-full object-cover">
+                    <img src="https://les-gites-de-pinet.netlify.app/images/velo.png" alt="Balade à vélo" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-6">
                         <div>
                             <h3 class="text-xl font-bold text-white mb-2">Balade à vélo</h3>
-                            <p class="text-white">Venez vous baigner tout simplement</p>
-						</div>
+                            <p class="text-white">Parcourez les pistes cyclables entre vignes et étangs.</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="relative rounded-lg overflow-hidden shadow-lg h-80">
-                    <img src="https://les-gites-de-pinet.netlify.app/images/etang.png" alt="Marché" class="w-full h-full object-cover">
+                    <img src="https://les-gites-de-pinet.netlify.app/images/etang.png" alt="Étang de Thau" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-6">
                         <div>
-                            <h3 class="text-xl font-bold text-white mb-2">Agde</h3>
-                            <p class="text-white">Flânez dans les marchés colorés de Pézenas, Mèze ou Montagnac pour découvrir les produits du terroir.</p>
+                            <h3 class="text-xl font-bold text-white mb-2">Étang de Thau</h3>
+                            <p class="text-white">Dégustez huîtres et coquillages frais chez les producteurs.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-             <div class="relative rounded-lg overflow-hidden shadow-lg h-80 mt-8"> <!-- Added mt-8 for spacing -->
-                    <img src="https://les-gites-de-pinet.netlify.app/images/picpoul.png" alt="Vignoble" class="w-full h-full object-cover">
+             <div class="relative rounded-lg overflow-hidden shadow-lg h-80 mt-8">
+                    <img src="https://les-gites-de-pinet.netlify.app/images/picpoul.png" alt="Vignoble Picpoul de Pinet" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-6">
                         <div>
                             <h3 class="text-xl font-bold text-white mb-2">Le Picpoul de Pinet</h3>
-                            <p class="text-white">Dégustez le célèbre Picpoul de Pinet directement chez les producteurs et découvrez les secrets de la viticulture locale.</p>
+                            <p class="text-white">Dégustez le célèbre vin blanc sec directement chez les producteurs.</p>
 						</div>
                     </div>
              </div>
-
 
             <div class="mt-12 grid md:grid-cols-2 gap-8">
                 <div class="bg-light p-8 rounded-lg shadow-md">
                     <h3 class="text-xl font-bold text-primary mb-4">Nos coups de cœur</h3>
                     <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
-                            <div>
-                                <h4 class="font-bold">Étang de Thau</h4>
-                                <p class="text-gray-700">Découvrez la pêche aux huîtres et dégustez les coquillages directement chez les ostréiculteurs.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
-                            <div>
-                                <h4 class="font-bold">Pézenas</h4>
-                                <p class="text-gray-700">Ville d'art et d'histoire aux ruelles médiévales et nombreuses galeries d'artisans.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
-                            <div>
-                                <h4 class="font-bold">Saint-Guilhem-le-Désert</h4>
-                                <p class="text-gray-700">Un des plus beaux villages de France, niché dans les gorges de l'Hérault.</p>
-                            </div>
-                        </li>
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i><div><h4 class="font-bold">Pézenas</h4><p class="text-gray-700">Ville d'art et d'histoire, cité de Molière, avec ses artisans.</p></div></li>
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i><div><h4 class="font-bold">Sète</h4><p class="text-gray-700">Le port de pêche, ses canaux et le Mont Saint-Clair.</p></div></li>
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i><div><h4 class="font-bold">Saint-Guilhem-le-Désert</h4><p class="text-gray-700">Un des plus beaux villages de France et son abbaye.</p></div></li>
                     </ul>
                 </div>
 
                 <div class="bg-light p-8 rounded-lg shadow-md">
                     <h3 class="text-xl font-bold text-primary mb-4">Activités sportives</h3>
                     <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-bicycle text-primary mt-1 mr-3"></i>
-                            <div>
-                                <h4 class="font-bold">Vélo</h4>
-                                <p class="text-gray-700">Parcourez les nombreuses pistes cyclables entre étangs et vignobles.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-ship text-primary mt-1 mr-3"></i>
-                            <div>
-                                <h4 class="font-bold">Voile</h4>
-                                <p class="text-gray-700">Écoles de voile à Marseillan et Mèze pour s'initier ou se perfectionner.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-hiking text-primary mt-1 mr-3"></i>
-                            <div>
-                                <h4 class="font-bold">Randonnée</h4>
-                                <p class="text-gray-700">Sentiers balisés dans les collines environnantes avec vues panoramiques.</p>
-                            </div>
-                        </li>
+                        <li class="flex items-start"><i class="fas fa-water text-primary mt-1 mr-3"></i><div><h4 class="font-bold">Nautisme</h4><p class="text-gray-700">Voile, kayak, paddle sur l'étang ou la mer.</p></div></li>
+                        <li class="flex items-start"><i class="fas fa-hiking text-primary mt-1 mr-3"></i><div><h4 class="font-bold">Randonnée</h4><p class="text-gray-700">Sentiers balisés dans l'arrière-pays (Cirque de Mourèze...).</p></div></li>
+                        <li class="flex items-start"><i class="fas fa-fish text-primary mt-1 mr-3"></i><div><h4 class="font-bold">Pêche</h4><p class="text-gray-700">En mer, en étang ou sur les berges de l'Hérault.</p></div></li>
                     </ul>
                 </div>
             </div>
@@ -600,76 +477,78 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="testimonial-card p-6 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-primary">
-                            <i class="fas fa-user text-xl"></i>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="font-bold">Marie & Pierre</h4>
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
+                        <div class="w-12 h-12 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-primary"><i class="fas fa-user text-xl"></i></div>
+                        <div class="ml-4"><h4 class="font-bold">Marie & Pierre</h4><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
                     </div>
-                    <p class="text-gray-700 italic">"Un cadre idyllique entre mer et vignes. Le gîte est parfaitement équipé et très confortable. Nous avons particulièrement apprécié la terrasse pour les petits déjeuners au soleil. À recommander sans hésiter!"</p>
-                    <p class="text-sm text-gray-500 mt-2">Juillet 2023 - Regina2</p>
+                    <p class="text-gray-700 italic">"Un cadre idyllique entre mer et vignes. Le gîte est parfaitement équipé et très confortable. Nous avons particulièrement apprécié la terrasse. À recommander!"</p>
+                    <p class="text-sm text-gray-500 mt-2">Juillet 2023 - Regina 1</p>
                 </div>
 
                 <div class="testimonial-card p-6 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-primary">
-                            <i class="fas fa-user text-xl"></i>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="font-bold">La famille Martin</h4>
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
+                        <div class="w-12 h-12 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-primary"><i class="fas fa-user text-xl"></i></div>
+                        <div class="ml-4"><h4 class="font-bold">La famille Martin</h4><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
                     </div>
-                    <p class="text-gray-700 italic">"Le gîte était parfait pour notre famille avec deux enfants. L'espace est bien aménagé et le jardin partagé a ravi les petits. La situation est idéale pour visiter la région. Nous reviendrons!"</p>
-                    <p class="text-sm text-gray-500 mt-2">Août 2023 - Regina2</p>
+                    <p class="text-gray-700 italic">"Le gîte était parfait pour notre famille. L'espace est bien aménagé et le jardin partagé a ravi les petits. La situation est idéale pour visiter la région. Nous reviendrons!"</p>
+                    <p class="text-sm text-gray-500 mt-2">Août 2023 - Regina 2</p>
                 </div>
 
                 <div class="testimonial-card p-6 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-primary">
-                            <i class="fas fa-user text-xl"></i>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="font-bold">Sophie & Thomas</h4>
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
+                        <div class="w-12 h-12 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-primary"><i class="fas fa-user text-xl"></i></div>
+                        <div class="ml-4"><h4 class="font-bold">Sophie & Thomas</h4><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
                     </div>
-                    <p class="text-gray-700 italic">"Week-end romantique parfait dans le gîte Regina 1. Tout était pensé pour notre confort et la décoration est très soignée. Les conseils de visite des propriétaires nous ont permis de découvrir des endroits secrets."</p>
-                    <p class="text-sm text-gray-500 mt-2">Mai 2023 - Regina1</p>
+                    <p class="text-gray-700 italic">"Week-end parfait. Tout était pensé pour notre confort et la décoration est très soignée. Les conseils des propriétaires nous ont permis de découvrir des endroits secrets."</p>
+                    <p class="text-sm text-gray-500 mt-2">Mai 2023 - Regina 1</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Booking Section -->
-    <section id="booking" class="py-16 bg-white">
+        <!-- Booking Section -->
+    <section id="booking" class="py-16 bg-white scroll-mt-16"> <!-- scroll-mt-16 ajoute marge pour ancre -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-primary mb-4">Réserver votre séjour</h2>
                 <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
-                <p class="max-w-2xl mx-auto text-lg text-gray-700">Remplissez ce formulaire pour nous faire part de votre demande de réservation. Nous vous répondrons dans les plus brefs délais.</p>
+
+                <!-- Instructions pour la réservation (ORDRE MODIFIÉ) -->
+                <p class="max-w-3xl mx-auto text-lg text-gray-700 mb-4">
+                    Pour effectuer une demande de réservation, merci de suivre les étapes suivantes :
+                </p>
+                <ol class="list-decimal list-inside text-left max-w-xl mx-auto text-gray-700 space-y-2 mb-8 bg-light p-4 rounded-md shadow-sm border border-gray-200">
+                    <li>
+                        <strong>Remplissez et envoyez</strong> le formulaire de demande ci-dessous avec vos dates et informations. Nous vérifierons la disponibilité.
+                    </li>
+                     <li>
+                        <strong>Téléchargez</strong> notre contrat de bail saisonnier (bouton ci-dessous).
+                    </li>
+                    <li>
+                        Une fois la disponibilité confirmée par nos soins, <strong>remplissez le contrat</strong> téléchargé et <strong>envoyez-le par email</strong> à
+                        <a href="mailto:daniel.murria@wanadoo.fr" class="text-primary hover:text-secondary font-medium underline">daniel.murria@wanadoo.fr</a> pour finaliser.
+                    </li>
+                </ol>
+                <p class="max-w-3xl mx-auto text-gray-600 text-sm mb-8">
+                    Nous vérifierons la disponibilité et vous contacterons rapidement. Si la réservation est confirmée, nous vous retournerons le contrat signé par email.
+                </p>
+
+                                                <!-- Bouton de téléchargement du contrat (CORRIGÉ - Commentaire déplacé) -->
+                <div class="mb-10 text-center">
+                    <!-- VÉRIFIEZ/MODIFIEZ LE CHEMIN DU PDF CI-DESSOUS -->
+                    <a href="/contrat_bail_saisonnier.pdf"
+                       download="Contrat_Bail_Saisonnier_Gites_Pinet.pdf"
+                       target="_blank"
+                       class="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white text-lg font-semibold tracking-wide uppercase px-6 py-4 rounded-lg shadow-lg hover:scale-105 transform transition duration-200 ease-in-out border border-white/20 focus:outline-none focus:ring-4 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-white">
+                       <!-- Contenu à l'intérieur du lien (icône et texte) -->
+                       <i class="fas fa-file-pdf mr-2"></i> Télécharger le Contrat
+                    </a>
+                </div>
+                <!-- FIN du Bouton de téléchargement corrigé -->
+
+                <p class="max-w-2xl mx-auto text-lg text-gray-700">Remplissez ce formulaire pour nous faire part de votre demande de réservation initiale.</p>
             </div>
 
+            <!-- Formulaire de demande de réservation -->
             <form id="booking-form" class="bg-light p-8 rounded-lg shadow-md">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
@@ -690,15 +569,15 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
                     </div>
                     <div>
                         <label for="gite" class="block text-gray-700 font-medium mb-2">Gîte souhaité *</label>
-                        <select id="gite" name="gite" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white"> <!-- Added bg-white for select -->
+                        <select id="gite" name="gite" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white">
                             <option value="">-- Sélectionnez --</option>
-                            <option value="Regina 1">Regina 1 (2-5 personnes)</option> <!-- Noms mis à jour -->
-                            <option value="Regina 2">Regina 2 (2-5 personnes)</option> <!-- Noms mis à jour -->
+                            <option value="Regina 1">Regina 1 (2-5 personnes)</option>
+                            <option value="Regina 2">Regina 2 (2-5 personnes)</option>
                         </select>
                     </div>
                     <div>
                         <label for="people" class="block text-gray-700 font-medium mb-2">Nombre de personnes *</label>
-                        <input type="number" id="people" name="people" min="1" max="5" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"> <!-- Max mis à jour à 5 -->
+                        <input type="number" id="people" name="people" min="1" max="5" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
                     </div>
                     <div>
                         <label for="arrival" class="block text-gray-700 font-medium mb-2">Date d'arrivée *</label>
@@ -711,25 +590,25 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
                 </div>
 
                 <div class="mt-6">
-                    <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                    <label for="message" class="block text-gray-700 font-medium mb-2">Message (Questions, précisions...)</label>
                     <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
                 </div>
 
-                 <div class="mt-8 mb-4"> <!-- Réduit mb-12 à mb-4 -->
+                 <div class="mt-8 mb-4">
+                      <!-- Bouton d'envoi du formulaire (style de référence) -->
                       <button type="submit"
                               class="w-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600
                                      text-white text-lg font-semibold tracking-wide uppercase
                                      px-6 py-4 rounded-lg shadow-lg hover:scale-105 transform transition duration-200 ease-in-out
                                      border border-white/20
                                      focus:outline-none focus:ring-4 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-white">
-                        ✈️ Envoyer ma demande
+                        ✈️ Envoyer ma demande de réservation
                       </button>
                  </div>
 
-
                 <!-- Message de succès (initialement caché) -->
                 <div id="form-success" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-md">
-                    Votre demande a bien été envoyée ! Nous vous répondrons dans les plus brefs délais.
+                    Votre demande a bien été envoyée ! Nous vous répondrons dans les plus brefs délais. N'oubliez pas d'envoyer le contrat rempli par email.
                 </div>
                 <!-- Message d'erreur (initialement caché) -->
                 <div id="form-error" class="hidden mt-4 p-4 bg-red-100 text-red-700 rounded-md">
@@ -738,93 +617,56 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
             </form>
         </div>
     </section>
+    <!-- Le reste de la page (Contact, Footer, Script) reste inchangé... -->
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-light">
+    <section id="contact" class="py-16 bg-light scroll-mt-16"> <!-- scroll-mt-16 ajoute marge pour ancre -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-primary mb-4">Nous contacter</h2>
                 <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
-                <p class="max-w-2xl mx-auto text-lg text-gray-700">Pour toute question ou information complémentaire, n'hésitez pas à nous contacter.</p>
+                <p class="max-w-2xl mx-auto text-lg text-gray-700">Pour toute question ou information complémentaire, n'hésitez pas.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="bg-white p-8 rounded-lg shadow-md">
                     <h3 class="text-xl font-bold text-primary mb-6">Coordonnées</h3>
-
                     <div class="space-y-4">
-                        <div class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-4"></i>
-                            <div>
-                                <h4 class="font-bold">Adresse</h4>
-                                <p class="text-gray-700">Les Gîtes de Pinet<br>21 avenue de Pomerols<br>34850 Pinet, France</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start">
-                            <i class="fas fa-phone-alt text-primary mt-1 mr-4"></i>
-                            <div>
-                                <h4 class="font-bold">Téléphone</h4>
-                                <p class="text-gray-700">06 71 21 74 66</p> <!-- Numéro exemple -->
-                            </div>
-                        </div>
-
-                        <div class="flex items-start">
-                            <i class="fas fa-envelope text-primary mt-1 mr-4"></i>
-                            <div>
-                                <h4 class="font-bold">Email</h4>
-                                <!-- Email masqué ou lien mailto si désiré -->
-                                <p class="text-gray-700"><a href="mailto:daniel.murria@wanadoo.fr" class="hover:text-secondary">daniel.murria@wanadoo.fr</a></p>
-                            </div>
-                        </div>
+                        <div class="flex items-start"><i class="fas fa-map-marker-alt text-primary mt-1 mr-4"></i><div><h4 class="font-bold">Adresse</h4><p class="text-gray-700">Les Gîtes de Pinet<br>21 avenue de Pomerols<br>34850 Pinet, France</p></div></div>
+                        <div class="flex items-start"><i class="fas fa-phone-alt text-primary mt-1 mr-4"></i><div><h4 class="font-bold">Téléphone</h4><p class="text-gray-700">06 71 21 74 66</p></div></div>
+                        <div class="flex items-start"><i class="fas fa-envelope text-primary mt-1 mr-4"></i><div><h4 class="font-bold">Email</h4><p class="text-gray-700"><a href="mailto:daniel.murria@wanadoo.fr" class="hover:text-secondary underline">daniel.murria@wanadoo.fr</a></p></div></div>
                     </div>
-
-
                 </div>
 
                 <div class="bg-white p-8 rounded-lg shadow-md">
                     <h3 class="text-xl font-bold text-primary mb-6">Accès</h3>
-
                     <div class="h-64 mb-6 rounded-lg overflow-hidden">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2896.889964968047!2d3.506145415489678!3d43.39905797913098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b1392a55698331%3A0x2bd6d30052ddf3a5!2sG%C3%AEtes%20R%C3%A9gina!5e0!3m2!1sfr!2sfr!4v1678886400000!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <!-- Note: J'ai remplacé l'URL de l'iframe par une plus générique pointant vers "Gîtes Régina", mettez votre URL embed exacte si vous l'avez -->
                     </div>
-
-                    <h4 class="font-bold text-primary mb-4">Itinéraire</h4>
-                    <p class="text-gray-700 mb-4">Depuis l'autoroute A9 :</p>
-                    <ul class="space-y-2 text-gray-700">
-                        <li class="flex items-start">
-                            <span class="bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center mr-2 mt-1 shrink-0">1</span>
-                            <span>Sortie n°34 "Agde - Pézenas"</span> <!-- Sortie commune -->
-                        </li>
-                        <li class="flex items-start">
-                            <span class="bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center mr-2 mt-1 shrink-0">2</span>
-                            <span>Prendre la D13 direction Pinet</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center mr-2 mt-1 shrink-0">3</span>
-                            <span>À Pinet, suivre "21 avenue de Pomerols".</span>
-                        </li>
+                    <h4 class="font-bold text-primary mb-2">Itinéraire (depuis A9)</h4>
+                    <ul class="space-y-1 text-sm text-gray-700">
+                        <li class="flex items-start"><span class="bg-primary text-white text-xs rounded-full w-4 h-4 flex items-center justify-center mr-2 mt-1 shrink-0">1</span><span>Sortie n°34 "Agde - Pézenas"</span></li>
+                        <li class="flex items-start"><span class="bg-primary text-white text-xs rounded-full w-4 h-4 flex items-center justify-center mr-2 mt-1 shrink-0">2</span><span>Prendre la D13 direction Pinet</span></li>
+                        <li class="flex items-start"><span class="bg-primary text-white text-xs rounded-full w-4 h-4 flex items-center justify-center mr-2 mt-1 shrink-0">3</span><span>À Pinet, suivre "21 avenue de Pomerols".</span></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-        <!-- Footer -->
-    <footer class="bg-primary py-8"> <!-- text-white retiré ici -->
+    <!-- Footer -->
+    <footer class="bg-primary py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
                 <div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-900">Les Gîtes de Pinet sur Gîtes.fr</h3>
-                    <p class="text-gray-800"> <!-- Changé de text-white text-opacity-80 -->
-                        <a href="https://www.gites.fr/gites_gite-regina_pinet_60494.htm" target="_blank" title="Cliquez pour en savoir plus sur le Gîte Regina à Pinet">Gîte Regina à Pinet</a>
-
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Les Gîtes sur Gites.fr</h3>
+                    <p class="text-gray-800 hover:text-white transition">
+                        <a href="https://www.gites.fr/gites_gite-regina_pinet_60494.htm" target="_blank" title="Voir notre annonce sur Gites.fr">Gîte Regina à Pinet</a>
                     </p>
                 </div>
 
                 <div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-900">Liens utiles</h3>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Navigation</h3>
                     <ul class="space-y-2">
                         <li><a href="#home" class="text-gray-800 hover:text-white transition">Accueil</a></li>
                         <li><a href="#gites" class="text-gray-800 hover:text-white transition">Nos Gîtes</a></li>
@@ -836,62 +678,63 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
 
                 <div>
                     <h3 class="text-xl font-bold mb-4 text-gray-900">Nous suivre</h3>
-                    <div class="flex space-x-4">
+                    <div class="flex space-x-4 justify-center md:justify-start">
                         <a href="#" class="text-gray-800 hover:text-white transition text-xl"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-gray-800 hover:text-white transition text-xl"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-800 hover:text-white transition text-xl"><i class="fab fa-tripadvisor"></i></a>
+                        <!-- Ajoutez d'autres liens sociaux si pertinent -->
                     </div>
-
                     <div class="mt-6">
-                        <a href="#" class="text-gray-800 hover:text-white transition flex items-center">
-                            <i class="fas fa-file-alt mr-2"></i> Mentions légales
+                        <a href="#" class="text-gray-800 hover:text-white transition flex items-center justify-center md:justify-start">
+                            <i class="fas fa-file-alt mr-2"></i> Mentions légales (à ajouter)
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Bordure et texte de copyright modifiés -->
-            <div class="border-t border-gray-400 border-opacity-50 mt-8 pt-8 text-center text-gray-600 text-sm">
-                <p>© 2024 Les Gîtes de Pinet. Tous droits réservés.</p> <!-- Année mise à jour -->
+            <div class="border-t border-gray-400 border-opacity-50 mt-8 pt-8 text-center text-gray-700 text-sm">
+                <p>© 2024 Les Gîtes de Pinet. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <!-- // --- DEBUT DU BLOC JAVASCRIPT REMPLACÉ --- // -->
+    <!-- JavaScript -->
     <script>
         // Toggle menu mobile
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-
         if (mobileMenuButton && mobileMenu) {
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
         }
 
-        // Défilement fluide pour les ancres
+        // Défilement fluide et fermeture menu mobile sur clic ancre
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                const targetElement = (targetId === '#') ? document.body : document.querySelector(targetId);
+                const targetElement = (targetId === '#' || targetId === '#home') ? document.body : document.querySelector(targetId);
 
                 if (targetElement) {
                     let offsetPosition = 0;
-                    if (targetId !== '#') {
-                       const nav = document.querySelector('nav');
-                       const navHeight = nav ? nav.offsetHeight : 0;
+                    const nav = document.querySelector('nav');
+                    const navHeight = nav ? nav.offsetHeight : 0;
+
+                    if (targetId !== '#' && targetId !== '#home') {
                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                       offsetPosition = elementPosition - navHeight - 20; // Ajout d'une marge supplémentaire
+                       offsetPosition = elementPosition - navHeight - 20; // Marge supplémentaire sous la nav fixe
+                    } else {
+                        // Pour #home ou #, remonter tout en haut
+                        offsetPosition = 0;
                     }
 
                     window.scrollTo({
-                        top: offsetPosition,
+                        top: offsetPosition < 0 ? 0 : offsetPosition, // Évite les valeurs négatives
                         behavior: 'smooth'
                     });
 
-                    // Ferme le menu mobile si ouvert et s'il existe
-                    if (mobileMenu) {
+                    // Ferme le menu mobile si ouvert
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                        mobileMenu.classList.add('hidden');
                     }
                 }
@@ -899,34 +742,19 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
         });
 
         // Carrousels d'images
-        let sliderIntervals = {}; // Stocke les intervalles pour chaque slider
-
+        let sliderIntervals = {};
         function showSlide(sliderId, index) {
             const slider = document.getElementById(sliderId);
             if (!slider) return;
             const slides = slider.querySelectorAll('.slide');
-            const dots = document.querySelectorAll(`.${sliderId}-dot`); // Sélectionne les points spécifiques au slider
-
-            if (slides.length === 0 || dots.length === 0) return; // Sécurité
-            
-            // Assure que l'index est valide
+            const dots = document.querySelectorAll(`.${sliderId}-dot`);
+            if (slides.length === 0 || dots.length === 0) return;
             const validIndex = (index + slides.length) % slides.length;
 
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-                if (i === validIndex) {
-                    slide.classList.add('active');
-                }
-            });
+            slides.forEach((slide, i) => slide.classList.toggle('active', i === validIndex));
+            dots.forEach((dot, i) => dot.classList.toggle('active-dot', i === validIndex));
 
-            dots.forEach((dot, i) => {
-                 dot.classList.remove('active-dot'); // Retire la classe active de tous
-                 if (i === validIndex) {
-                    dot.classList.add('active-dot'); // Ajoute la classe active au bon dot
-                 }
-            });
-
-            startAutoRotate(sliderId); // Redémarre l'intervalle après clic manuel
+            startAutoRotate(sliderId); // Redémarre la rotation auto
         }
 
         function rotateSlider(sliderId) {
@@ -934,27 +762,15 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
              if (!slider) return;
             const slides = slider.querySelectorAll('.slide');
             if (slides.length <= 1) return;
-
-            let currentIndex = 0;
-            slides.forEach((slide, index) => {
-                if (slide.classList.contains('active')) {
-                    currentIndex = index;
-                }
-            });
-
-            const nextIndex = (currentIndex + 1) % slides.length;
-            showSlide(sliderId, nextIndex);
+            let currentIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+            showSlide(sliderId, (currentIndex + 1) % slides.length);
         }
 
         function startAutoRotate(sliderId) {
-             if (sliderIntervals[sliderId]) {
-                clearInterval(sliderIntervals[sliderId]);
-            }
-            const slider = document.getElementById(sliderId);
-            if (slider && slider.querySelectorAll('.slide').length > 1) {
-                 sliderIntervals[sliderId] = setInterval(() => {
-                     rotateSlider(sliderId);
-                 }, 5000);
+             if (sliderIntervals[sliderId]) clearInterval(sliderIntervals[sliderId]);
+             const slider = document.getElementById(sliderId);
+             if (slider && slider.querySelectorAll('.slide').length > 1) {
+                 sliderIntervals[sliderId] = setInterval(() => rotateSlider(sliderId), 5000);
              }
         }
 
@@ -963,108 +779,65 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
             sliderIds.forEach(id => {
                  const slider = document.getElementById(id);
                  if (slider) {
-                    // Initialise le premier slide et dot comme actifs
-                    const slides = slider.querySelectorAll('.slide');
-                    const dots = document.querySelectorAll(`.${id}-dot`);
-                    if (slides.length > 0) slides[0].classList.add('active');
-                    if (dots.length > 0) dots[0].classList.add('active-dot');
-
-                    startAutoRotate(id);
+                    showSlide(id, 0); // Initialise le premier slide et dot
+                    startAutoRotate(id); // Démarre la rotation
                  }
              });
         });
 
-        // --- Soumission du formulaire vers Google Sheet ---
+        // Soumission du formulaire vers Google Sheet
         const bookingForm = document.getElementById('booking-form');
         const formSuccess = document.getElementById('form-success');
         const formError = document.getElementById('form-error');
         const submitButton = bookingForm ? bookingForm.querySelector('button[type="submit"]') : null;
 
         // --- COLLEZ L'URL DE VOTRE APPLICATION WEB GOOGLE APPS SCRIPT ICI ---
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbw5L5-iOHoanvw0Tx8CwMvjHIdGCg2oSZxB-glGo2AuiwTCpBSkef0OX8GH6tdvThDwvA/exec'; // <--- VOTRE URL EST ICI !
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw5L5-iOHoanvw0Tx8CwMvjHIdGCg2oSZxB-glGo2AuiwTCpBSkef0OX8GH6tdvThDwvA/exec'; // <--- !! METTRE VOTRE URL ICI !!
 
-        // Vérifie si tout est prêt pour attacher l'événement
         if (bookingForm && formSuccess && formError && submitButton && scriptURL && scriptURL.startsWith('https://script.google.com/')) {
             bookingForm.addEventListener('submit', (e) => {
-                e.preventDefault(); // Empêche la soumission HTML par défaut
-
-                // Désactive le bouton et affiche un état de chargement
+                e.preventDefault();
                 submitButton.disabled = true;
-                // Stocke le HTML original pour le restaurer
                 const originalButtonHTML = submitButton.innerHTML;
                 submitButton.textContent = 'Envoi en cours...';
-                formSuccess.classList.add('hidden'); // Masque les messages précédents
+                formSuccess.classList.add('hidden');
                 formError.classList.add('hidden');
-
                 const formData = new FormData(bookingForm);
 
                 fetch(scriptURL, { method: 'POST', body: formData })
-                    .then(response => {
-                        // Vérifie d'abord si la réponse HTTP est OK (ex: 200)
-                        if (!response.ok) {
-                            // Si la réponse n'est pas OK, lance une erreur pour aller au bloc catch
-                             throw new Error(`Erreur HTTP: ${response.status} ${response.statusText}`);
-                        }
-                        // Tente de lire la réponse comme JSON
-                        return response.json();
-                    })
+                    .then(response => response.ok ? response.json() : response.text().then(text => { throw new Error(`Erreur HTTP ${response.status}: ${text || response.statusText}`) }))
                     .then(data => {
-                        // Affiche la réponse BRUTE du script dans la console (TRÈS IMPORTANT POUR DEBUG)
-                        console.log('Réponse reçue du script Google Apps:', data);
-
-                        // Vérifie si la réponse contient result: 'success'
+                        console.log('Réponse reçue:', data); // Debug
                         if (data && data.result === 'success') {
-                            formSuccess.classList.remove('hidden'); // Affiche le message de succès
-                            bookingForm.reset(); // Réinitialise le formulaire
-                            // Cache le message de succès après 5 secondes
-                            setTimeout(() => {
-                                formSuccess.classList.add('hidden');
-                            }, 5000);
+                            formSuccess.classList.remove('hidden');
+                            bookingForm.reset();
+                            setTimeout(() => formSuccess.classList.add('hidden'), 6000);
                         } else {
-                            // Si la réponse n'est pas {result: 'success'}, affiche une erreur
-                            let errorMessage = 'Une erreur est survenue lors du traitement par le serveur.';
-                            if (data && data.error) {
-                                errorMessage += ` Détail : ${data.error}`; // Affiche l'erreur renvoyée par le script si disponible
-                            } else if (data) {
-                                errorMessage += ' Réponse inattendue reçue.';
-                            }
-                            formError.textContent = errorMessage;
-                            formError.classList.remove('hidden');
-                            console.error('Erreur logique ou réponse inattendue du script:', data);
+                            throw new Error(data?.error || 'Réponse inattendue du serveur.');
                         }
                     })
                     .catch(error => {
-                        // Gère les erreurs réseau ou les erreurs lors de l'analyse JSON
-                        console.error('Erreur lors de la soumission ou de la réception!', error);
-                        formError.textContent = `Une erreur technique est survenue. Veuillez réessayer. Détail : ${error.message}`;
+                        console.error('Erreur soumission!', error);
+                        formError.textContent = `Une erreur technique est survenue: ${error.message}. Veuillez réessayer ou nous contacter.`;
                         formError.classList.remove('hidden');
                     })
                     .finally(() => {
-                        // Réactive le bouton et restaure son contenu HTML original dans tous les cas
                         submitButton.disabled = false;
-                        submitButton.innerHTML = originalButtonHTML; // Restaure l'icône et le texte
+                        submitButton.innerHTML = originalButtonHTML;
                     });
             });
         } else {
-             // Avertit si quelque chose manque pour initialiser le formulaire
-             console.warn("Le formulaire de réservation n'a pas pu être initialisé. Vérifiez les IDs HTML (booking-form, form-success, form-error, bouton submit), l'URL du script, ou si des éléments sont manquants.");
+             console.warn("Formulaire de réservation non initialisé. Vérifiez IDs, bouton submit ou URL script:", scriptURL);
              if(submitButton && (!scriptURL || !scriptURL.startsWith('https://script.google.com/'))) {
                  submitButton.disabled = true;
-                 submitButton.textContent = 'Configuration URL requise';
-                 const warningDiv = document.createElement('div');
-                 warningDiv.className = 'mt-4 p-4 bg-yellow-100 text-yellow-700 rounded-md';
-                 warningDiv.textContent = "L'URL du script Google Apps n'est pas configurée correctement dans le code JavaScript.";
-                 // Vérifie si bookingForm existe avant d'ajouter l'avertissement
-                 if (bookingForm) {
-                    bookingForm.appendChild(warningDiv);
-                 }
+                 submitButton.textContent = 'Config URL requise';
              }
         }
 
-        // Header sticky au défilement
+        // Header sticky avec changement d'opacité
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
-            if (nav) { // Vérifie que la nav existe
+            if (nav) {
                 if (window.scrollY > 50) {
                     nav.classList.add('shadow-lg', 'bg-opacity-100');
                     nav.classList.remove('bg-opacity-90');
@@ -1075,7 +848,6 @@ Le gîte est jumelé avec un autre gîte identique et les propriétaires sont su
             }
         });
     </script>
-    <!-- // --- FIN DU BLOC JAVASCRIPT REMPLACÉ --- // -->
 
 </body>
 </html>
